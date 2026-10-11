@@ -9,10 +9,10 @@ A one-page [Jekyll](https://jekyllrb.com/) site: the brand image treatment (phot
 | `index.html` | The page (content and hero markup) |
 | `_layouts/default.html` | HTML shell, meta tags |
 | `assets/css/style.css` | Styles; brand tokens copied from the main site |
-| `assets/images/` | Two hero photos, `overlay.png` (ring, orbits, logo), `badge.png` (portrait version), favicon, social card |
+| `assets/images/` | Hero photo, `overlay.png` (ring, orbits, logo), `badge.png` (portrait version), favicon, social card |
 | `_headers` | Cloudflare security and caching headers |
 
-The hero picks one of the two photos at random on each load, as the main site does. To pin one, delete the `<script>` block at the bottom of `index.html` and edit the `<img id="hero-photo">` tag to the photo you want.
+The hero uses the glacier photo. To change it, replace `hero-glacier.jpg` and `hero-glacier-1200.jpg` in `assets/images/`.
 
 ## Run locally
 
