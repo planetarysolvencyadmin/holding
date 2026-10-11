@@ -1,0 +1,34 @@
+---
+layout: default
+title: Planetary Solvency · Launching in early November 2026
+---
+<section class="hero" id="hero">
+  <img class="hero-photo" id="hero-photo" src="/assets/images/hero-glacier.jpg"
+       srcset="/assets/images/hero-glacier-1200.jpg 1200w, /assets/images/hero-glacier.jpg 2400w"
+       sizes="100vw" width="2400" height="1514" alt="" fetchpriority="high" decoding="async">
+  <div class="stage">
+    <span class="glass" aria-hidden="true"></span>
+    <picture>
+      <source media="(max-aspect-ratio: 1/1)" srcset="/assets/images/badge.png">
+      <img class="overlay" src="/assets/images/overlay.png" width="2400" height="1350" alt="Planetary Solvency">
+    </picture>
+  </div>
+</section>
+
+<section class="notice" aria-labelledby="launch">
+  <div class="wrap">
+    <h1 id="launch">Launching in early November 2026</h1>
+    <p>Follow us on LinkedIn: <a href="https://www.linkedin.com/company/planetary-solvency/" rel="noopener">https://www.linkedin.com/company/planetary-solvency/</a></p>
+  </div>
+</section>
+
+<script>
+  // Same idea as the main site: pick one of the two brand image treatments at random.
+  (function () {
+    if (Math.random() < 0.5) return;
+    var i = document.getElementById('hero-photo');
+    i.src = '/assets/images/hero-power.jpg';
+    i.srcset = '/assets/images/hero-power-1200.jpg 1200w, /assets/images/hero-power.jpg 2400w';
+    i.width = 2400; i.height = 1600;
+  })();
+</script>

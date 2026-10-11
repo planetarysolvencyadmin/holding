@@ -1,0 +1,52 @@
+/* Planetary Solvency holding page. Plain CSS, one self-hosted font (Inter), brand tokens copied from the main site. */
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 100 900; font-display: swap; src: url("../fonts/inter-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 100 900; font-display: swap; src: url("../fonts/inter-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+:root {
+  --teal: #5A7F82; --coral: #F48E76; --ink: #171B24; --deep: #0E293C;
+  --lilac: #BDB0D7; --navy: #2C3656; --paper: #FFFFFF;
+  --max-width: 1044px;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column;
+  font-family: "Inter", "Helvetica Neue", Helvetica, Arial, "Liberation Sans", sans-serif;
+  font-optical-sizing: auto; font-size: 1.0625rem; line-height: 1.6; color: #fff; background: var(--deep);
+}
+/* Definite height so the hero's container units (cqw/cqh) resolve */
+main { height: max(100vh, 36rem); height: max(100svh, 36rem); display: grid; grid-template-rows: minmax(22rem, 1fr) auto; }
+.wrap { max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
+:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+
+/* Hero: brand image treatment. The overlay PNG (ring, orbits, logo, glow) is drawn on top of the photo,
+   with a blurred "glass" disc between them that lines up with the ring. */
+.hero { position: relative; min-height: 0; overflow: hidden; container-type: size; background: var(--deep); }
+.hero-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.stage {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  aspect-ratio: 16 / 9;
+  /* cover the hero, but never so wide that the ring is cropped top and bottom */
+  width: min(max(100cqw, 177.78cqh), 215cqh);
+}
+.stage picture, .overlay { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
+.glass {
+  position: absolute; border-radius: 50%; aspect-ratio: 1;
+  left: 28.2%; top: 13.3%; width: 42.9%;   /* ring geometry measured from the artwork */
+  -webkit-backdrop-filter: blur(36px) saturate(1.1); backdrop-filter: blur(36px) saturate(1.1);
+  background: rgba(14, 41, 60, 0.12);
+}
+/* Portrait screens: use the square badge artwork (ring + logo only) */
+@media (max-aspect-ratio: 1/1) {
+  .stage { aspect-ratio: 1; width: min(100cqw, 100cqh); }
+  .glass { left: 4.2%; top: 4.2%; width: 91.6%; }
+}
+
+/* The message */
+.notice { text-align: center; background: var(--navy); padding: 2.25rem 0 2.5rem; border-top: 6px solid var(--coral); }
+.notice h1 { margin: 0 0 0.75rem; color: #fff; font-size: clamp(1.9rem, 4.5vw, 2.6rem); line-height: 1.15; letter-spacing: -0.015em; }
+.notice p { margin: 0 auto; max-width: 62ch; font-size: clamp(1.05rem, 2vw, 1.2rem); overflow-wrap: anywhere; }
+.notice a { color: var(--lilac); text-underline-offset: 0.15em; }
+.notice a:hover { color: #fff; text-decoration-thickness: 2px; }

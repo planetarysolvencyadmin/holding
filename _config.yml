@@ -1,0 +1,15 @@
+title: Planetary Solvency
+description: Planetary Solvency launches in early November 2026.
+lang: en-GB
+# Set to the live address (no trailing slash) to enable the social share image, e.g. https://www.example.org
+url: ""
+# Underscore files are skipped by default; Cloudflare reads _headers from the built site
+include:
+  - _headers
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
+sass:
+  disable: true
